@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Isi Data Antrian</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="menu.html" class="back">Back</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="antrian.php">Antrian</a></li>
+    </ul>
+    <div class="container">
+        <form action="proses.php" method="post" class="input">
+            <h1>Isi Data Antrian</h1>
+            <div class="data">
+                <label for="nama">Nama :</label>
+                <input type="text" name="nama" id="nama" required>
+            </div>
+            <div class="data">
+                <label for="nohp">No. HP :</label>
+                <input type="text" name="nohp" id="nohp" required>
+            </div>
+            <div class="data">
+                <label for="tanggal">Tanggal :</label>
+                <input type="date" name="tanggal" id="tanggal" required>
+            </div>
+            <input type="hidden" name="hairstyle" id="hairstyle">
+            <div class="submit">
+                <input type="submit" name="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script>
+        // Mendapatkan parameter URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const hairstyle = urlParams.get('hairstyle');
+        document.getElementById('hairstyle').value = hairstyle;
+
+        // Menampilkan notifikasi pilihan gaya rambut
+        if (hairstyle) {
+            alert("Anda memilih gaya rambut: " + hairstyle);
+        }
+    </script>
+    
+</body>
+</html>
